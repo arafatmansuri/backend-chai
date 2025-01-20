@@ -1,6 +1,7 @@
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
+import multer from "multer";
 // import routes
 import { errorHandler } from "./middlewares/error.middlewares.js";
 import healthcheckrouter from "./routes/healthcheck.routes.js";
@@ -17,7 +18,11 @@ app.use(cors());
 
 // common middlewares
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
+
+const upload = multer();
+app.use(upload.none());
+
 app.use(express.static("public"));
 app.use(cookieParser());
 

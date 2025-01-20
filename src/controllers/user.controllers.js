@@ -135,6 +135,9 @@ const logInUser = asyncHandler(async (req, res) => {
   ) {
     throw new ApiError(404, { message: "All fields are required" });
   }
+  // const us = await req.body;
+  // console.log(us);
+  // const user = await User.findById(us._id);
   const user = await User.findOne({
     $or: [{ username }, { email }],
   }); // Should look up user by email
