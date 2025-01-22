@@ -10,7 +10,7 @@ import {
 } from "../utils/cloudinary.js";
 const generateAccessAndRefreshToken = async (userId) => {
   try {
-    const user = await User.findById(userId);
+  const user = await User.findById(userId);
     //small check for user :
     if (!user) {
       return new ApiError(400, "User doesn't exist");

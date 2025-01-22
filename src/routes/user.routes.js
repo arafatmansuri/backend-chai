@@ -31,7 +31,7 @@ router.route("/register").post(
   registerUser
 );
 
-router.route("/login").post(logInUser);
+router.route("/login").post(upload.none(),logInUser);
 router.route("/refresh-token").post(refreshAccessToken);
 
 //secured routes
